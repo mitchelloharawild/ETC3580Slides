@@ -1,0 +1,143 @@
+---
+title: "ETC3580: Advanced Statistical Modelling"
+author: "Week 6: Bootstrap"
+fontsize: 14pt
+output:
+  beamer_presentation:
+    theme: metropolis
+    fig_height: 4.5
+    fig_width: 7
+    highlight: tango
+    includes:
+      in_header: header.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache=FALSE, warning=FALSE, message=FALSE,
+  dev.args=list(bg=grey(0.9), pointsize=11))
+library(faraway)
+library(tidyverse)
+library(forecast)
+```
+
+## Pull yourself up by your bootstraps
+
+\fullwidth{Bootstraps}
+
+## What is the bootstrap?
+
+  * The bootstrap is a flexible statistical tool to **quantify the uncertainty** associated with a *given estimator*.
+  * We **mimic the process of obtaining new data sets** of the same size, so that we can estimate the variability of our estimate.
+
+    1. Repeatedly sample observations **from the original data set with replacement** (nonparametric)
+    2. Repeatedly sample observations **from an estimated model** (parametric).
+
+## Illustration of the nonparametric bootstrap
+
+\fullheight{5-11}
+
+## Bootstrap of sample median
+
+ 1. Draw a random sample of data with replacement.
+ 2. Calculate sample median of sample.
+
+###
+Repeat many times. Find percentiles of sample medians.
+
+## Bootstrap of sample median
+
+```{r boxplotincome, fig.height=1}
+jbox <- function(y) {
+  p <- ggplot() +
+    geom_jitter(aes(x=1, y=y), alpha=0.1, col='blue',
+                position=position_jitter(w=0.2,h=0))  +
+    geom_boxplot(aes(x=1,y=y),
+                 outlier.shape=NA) +
+    coord_flip() + xlab("") + ylim(20,255) +
+    theme(axis.line.y = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank())
+  return(p)
+}
+y <- fpp::credit$income
+jbox(y) + ylab("Income")
+```
+
+\pause
+
+```{r, fig.height=1}
+jbox(sample(y,replace=TRUE)) + ylab("Bootstrapped data")
+```
+
+\pause
+
+```{r, fig.height=1}
+jbox(sample(y,replace=TRUE)) + ylab("Bootstrapped data")
+```
+
+\pause
+
+```{r, fig.height=1}
+jbox(sample(y,replace=TRUE)) + ylab("Bootstrapped data")
+```
+
+\pause
+
+```{r, fig.height=1}
+jbox(sample(y,replace=TRUE)) + ylab("Bootstrapped data")
+```
+
+
+## Nonparametric bootstrap of sample median
+
+ * Percentiles of bootstrapped medians provide a confidence interval for the true median.
+
+
+\fontsize{12}{14}\sf
+
+```{r bootstrap1, echo=TRUE}
+median(y)
+bmedians <- numeric(100)
+for(i in seq_along(bmedians))
+  bmedians[i] <- median(sample(y, replace=TRUE))
+quantile(bmedians, prob=c(0.025, 0.975))
+```
+
+## Parametric bootstrap of sample median
+
+ * Assume a parametric model/distribution for data, and re-sample from the model.
+
+```{r, fig.height=3.8}
+gghistogram(y, add.normal=TRUE)
+```
+
+## Parametric bootstrap of sample median
+
+ * Assume a parametric model/distribution for data, and re-sample from the model.
+ * Take log of data.
+
+```{r, fig.height=3.8}
+gghistogram(log(y), add.normal=TRUE)
+```
+
+## Parametric bootstrap of sample median
+
+ * Take log of data.
+
+\fontsize{12}{14}\sf
+
+```{r bootstrap2, echo=TRUE}
+logy <- log(y)
+mu <- mean(logy)
+sigma <- sd(logy)
+n <- length(y)
+for(i in seq_along(bmedians))
+  bmedians[i] <- exp(median(rnorm(n, mu, sigma)))
+quantile(bmedians, prob=c(0.025, 0.975))
+```
+
+\pause
+
+ * logNormal assumption not working well!

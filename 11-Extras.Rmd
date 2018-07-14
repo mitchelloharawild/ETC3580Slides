@@ -1,0 +1,110 @@
+---
+title: "ETC3580: Advanced Statistical Modelling"
+author: "Week 11: Extras"
+fontsize: 14pt
+output:
+  beamer_presentation:
+    theme: metropolis
+    fig_height: 5
+    fig_width: 7
+    highlight: tango
+    includes:
+      in_header: header.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE, warning=FALSE, message=FALSE,
+  dev.args=list(bg=grey(0.9), pointsize=11))
+library(faraway)
+library(tidyverse)
+library(mgcv)
+```
+
+# Alternating Conditional Expectations
+
+## Alternating Conditional Expectations
+
+Additive model:
+$$y = \alpha + \sum_{j=1}^p f_j(x_j) + \varepsilon$$
+
+Transform-both-sides model:
+$$\theta(y) = \alpha + \sum_{j=1}^p f_j(x_j) + \varepsilon$$
+
+\pause
+
+ACE is a way of fitting TBS models to minimize
+$$ \sum_{i=1}^n \left[ \theta(y_i) -  \alpha - \sum_{j=1}^p f_j(x_{j,i}) \right]$$
+
+\pause
+
+ * To avoid $\theta=\alpha=f_j=0$, we restrict $\theta$ such that $\text{Var}(\theta(y))=1$.
+
+## Alternating Conditional Expectations
+
+1. Initialize
+  $$ \theta(y) = \frac{y-\bar{y}}{\text{SD}(y)}, \qquad f_j = \hat{\beta}_j (x_j-\bar{x}), \qquad \alpha=0$$
+
+2. Cycle
+\begin{align*}
+  f_j &= S(x_j, \theta(y) - \sum_{i\ne j} f_j(x_i)) \\
+  \theta &= S(y, \sum_j f_j(x_j) \\
+  \theta(y) &\leftarrow \frac{\theta(y)-\bar{\theta(y)}}{\text{SD}(\theta(y))}
+\end{align*}
+
+## Alternating Conditional Expectations
+
+ * Can over-fit easily
+ * Hard to produce predictions (as you have to reverse transformations)
+ * Perhaps best for suggesting parametric transformations
+ * Can also be viewed as a method for maximizing partial correlations between $\theta(y)$ and $f_j(x_j)$.
+
+#  Additivity and Variance Stabilization
+
+##  Additivity and Variance Stabilization
+
+AVAS is another transform-both-sides method.
+
+Minimize
+$$ \sum_{i=1}^n \left[ \theta(y_i) -  \alpha - \sum_{j=1}^p f_j(x_{j,i}) \right]$$
+such that
+$$\text{Var}\left[\theta(y) \mid \sum_{j=1}^p f_j(x_{j,i}) \right] = \text{constant}$$
+
+ * Additive with homoskedastic errors.
+ * Not necessarily the best possible fit.
+ * Again, it is perhaps best for suggesting parametric transformations
+
+
+# Generalized Additive Mixed-Effect Models
+
+## Generalized Additive Mixed-Effect Models
+
+\alert{GAMMs:}
+
+* Random effects
+* Smooth additive predictors
+* Non-Gaussian response distribution
+
+\vspace*{1cm}
+
+###
+Implemented in `mgcv::gamm`
+
+
+# Multivariate Adaptive Regression Splines
+
+## Multivariate Adaptive Regression Splines
+
+Special case of additive models with regression splines and interactions
+$$\hat{f}(x) = \sum_{j=1}^k c_j B_j(x)$$
+where $B_j(x)$ are formed from products of terms of the form $[\pm (x_i-t)^q_+]$
+
+ * Usually $q=1$ (piecewise linear)
+ * Estimated iteratively with terms and knots being added at each step.
+ * Developed by Jerome Friedman (1991).
+
+## Multivariate Adaptive Regression Splines
+
+ * Available in R in the `earth` package (as MARS was trademarked).
+ * Default uses only additive predictors (no interactions) and chooses model size using GCV.
+ * Set `degree=2` to allow second-order interactions
+ * Set `nk=?` to restrict model size (number of knots).

@@ -1,0 +1,96 @@
+---
+title: "ETC3580: Advanced Statistical Modelling"
+author: "Week 1: Linear model revision"
+fontsize: 14pt
+output:
+  beamer_presentation:
+    theme: metropolis
+    fig_height: 4.5
+    fig_width: 7
+    highlight: tango
+    includes:
+      in_header: header.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE, warning=FALSE, message=FALSE,
+  dev.args=list(bg=grey(0.9), pointsize=11))
+```
+
+# Contact details
+
+## Lecturer
+
+**Professor Rob Hyndman**
+
+  - Room E762, Menzies Building
+  - Email: Rob.Hyndman@monash.edu
+  - robjhyndman.com
+
+## Tutor
+
+**Mitchell O'Hara-Wild**
+
+  - Email: Mitch.OHaraWild@monash.edu
+
+# Unit objectives
+
+  1. provide an understanding of statistical models for handling common data analysis problems
+  2. develop skills for fitting, interpreting and assessing statistical models
+  3. develop computer skills for exploring and modelling different kinds of data.
+
+
+## Teaching and learning approach
+
+ * Two 60 min lectures (Mon 4pm; Tues 4pm)
+ * One 90 min tutorial (Fri 12.30pm)
+
+
+#
+\placefig{.5}{1.}{width=6cm}{RStudio-Ball}
+
+\placefig{6.99}{0}{width=7.5cm,height=9.3cm}{ELM}
+
+
+
+# Outline
+
+\fontsize{12}{13}\sf
+
+\begin{tabular}{rlp{8.2cm}}
+\bf Week & \multicolumn{2}{l}{\textbf{Topic}} \\
+\midrule
+1  & LM   & Review of linear models\\
+2  & LM   & Leverage, influence, diagnostics\\
+3  & GLM  & Regression with binary and binomial responses \\
+4  & GLM  & Regression with proportional and count responses\\
+5  & GLM  & Generalized linear model theory\\
+6  & GLMM & Random effects\\
+7  & GLMM & Panel data and hierarchical linear models\\
+8  & GLMM & Mixed effects models for non-Gaussian responses\\
+9  & GAM  & Regression splines, B-splines, penalized regression splines\\
+10 & GAM  & Smoothing splines, interactions\\
+11 & GAM  & GAMM\\
+12 & GAM  & Revision
+\end{tabular}
+
+# Assessment
+
+\begin{tabular}{lll}
+  \toprule
+    \textbf{Task}  & \textbf{Due Date}     & \textbf{Value} \\
+  \midrule
+    Assignment 1   & 28 August & 13.33\%\\
+    Assignment 2   & 2 October & 13.33\%\\
+    Assignment 3   & 23 October & 13.33\%\\
+    Final exam     & Official exam period  & 60\%           \\
+  \bottomrule
+\end{tabular}
+
+\vspace*{0.8cm}
+
+\pause
+
+  - Need at least 50\% for exam.
+  - Need at least 50\% for total.
+
