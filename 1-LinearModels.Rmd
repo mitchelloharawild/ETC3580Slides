@@ -145,8 +145,6 @@ Differentiate wrt $\bm{\beta}$ gives
 \]
 \end{block}
 
-
-
 ## Likelihood
 
 If the errors are iid and normally distributed, then
@@ -160,9 +158,6 @@ L = \frac{1}{\sigma^T(2\pi)^{T/2}}\exp\left(-\frac1{2\sigma^2}(\bm{y}-\bm{X}\bm{
 which is maximized when $(\bm{y}-\bm{X}\bm{\beta})'(\bm{y}-\bm{X}\bm{\beta})$ is minimized.\pause
 
 \centerline{\textcolor{orange}{So \textbf{MLE = OLS}.}}
-
-
-
 
 ## R modelling notation
 
@@ -198,7 +193,6 @@ $$\text{\tt response} = \beta_0 + \beta_1 \text{\tt x1}
  * The first level is used as the reference category.
  * Use `relevel` to change the reference category
 
-
 \fontsize{12}{12}\sf
 
 | Expression | Description |
@@ -210,8 +204,6 @@ $$\text{\tt response} = \beta_0 + \beta_1 \text{\tt x1}
 | `y ~ x1 + x2 + x3`  | Multiple regression|
 | `sqrt(y) ~ x + I(x^2)`  | Transformed|
 | `y ~ . -x1` | All variables except x1|
-
-
 
 ## Interactions
 
@@ -300,7 +292,6 @@ Now $\bm{X}_{[i]}'\bm{X}_{[i]} = (\bm{X}'\bm{X} - \bm{x}_i\bm{x}_i')$ and $\bm{x
 
 ## LOO Residuals
 
-
 \begin{block}{Sherman-Morrison-Woodbury formula}
 Suppose $\bm{A}$ is a square matrix, and $\bm{u}$ and $\bm{v}$ are column vectors of the same dimension. Then
 $$(\bm{A}+\bm{u}\bm{v}')^{-1} = \bm{A}^{-1} -
@@ -325,7 +316,6 @@ Therefore
 &=  \hat{\bm{\beta}} - (\bm{X}'\bm{X})^{-1}\bm{x}_i e_i / (1-h_i)
 \end{align*}
 
-
 ## LOO Residuals
 
 Thus
@@ -335,7 +325,6 @@ e_{[i]} &= y_i - \bm{x}_i'\hat{\bm{\beta}}_{[i]} \\
 &= e_i + h_i e_i/(1-h_i) \\
 &= e_i/(1-h_i),
 \end{align*}
-
 
 ## LOO Residuals
 
@@ -347,14 +336,12 @@ $$
  * Measures MSE of out-of-sample prediction
  * Asymptotically equivalent to AIC (up to monotonic transformation)
 
-
 ### Cook distances
 $$
  D_i = \frac{e_i^2h_i}{\hat{\sigma}^2p(1-h_i)}
 $$
 
  * Measures change in fit if observation $i$ dropped.
-
 
 ## Residual diagnostic functions
 
@@ -419,9 +406,7 @@ fit <- lm(y ~ poly(x,3))
 * Because $z_i$ involve constants $a_1, a_2, \dots$, the intercept will be affected.
 * Coefficients of lower order terms are unchanged when higher order terms are added.
 
-
 ## Orthogonal polynomials
-
 
 ```{r}
 x <- seq(0,1, l=1001)

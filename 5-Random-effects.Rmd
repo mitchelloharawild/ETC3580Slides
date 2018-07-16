@@ -19,7 +19,6 @@ library(faraway)
 library(tidyverse)
 ```
 
-
 # Random effects
 
 ## Grouped data
@@ -30,7 +29,6 @@ Data come in groups, rather than iid:
  * Data on regions within states within countries
  * Measurements on people over time
  * Measuring different drugs on same people
-
 
 ###
 Correlations between observations within the same group, so independence assumption inappropriate
@@ -180,8 +178,6 @@ $$\E(\bm{\gamma} |\bm{y}) = \bm{D}\bm{Z}'\bm{V}^{-1}(\bm{y}-\bm{X}\bm{\beta})$$
 
 * Use `ranef(fit)`
 
-
-
 # Diagnostics
 
 ## Residuals
@@ -193,8 +189,6 @@ $$\E(\bm{\gamma} |\bm{y}) = \bm{D}\bm{Z}'\bm{V}^{-1}(\bm{y}-\bm{X}\bm{\beta})$$
  * Plotting residuals vs predictors helps in spotting nonlinearity as usual.
  * qqnorm on residuals for normality check of residuals
  * qqnorm on random effects for normality check on random effects
-
-
 
 # Inference
 

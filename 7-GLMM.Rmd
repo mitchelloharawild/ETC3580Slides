@@ -19,7 +19,6 @@ library(faraway)
 library(tidyverse)
 ```
 
-
 ## Generalized Linear Mixed Models
 
  * Combine GLMs with random effects
@@ -34,7 +33,6 @@ library(tidyverse)
 $$L(\bm{\beta},\phi,\bm{D}) = \prod_{i=1}^n \int f(y_i | \bm{\beta},\phi,\bm{\gamma}) h(\bm{\gamma}|\bm{D})$$
 
    * Can only solve integrals if $f$ and $h$ both normal
-
 
 ## Numerical integration of likelihood
 

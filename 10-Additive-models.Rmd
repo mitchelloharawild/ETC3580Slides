@@ -20,7 +20,6 @@ library(tidyverse)
 library(mgcv)
 ```
 
-
 # Penalized regression splines
 
 ## Recall cubic regression splines
@@ -56,7 +55,6 @@ Then we want to minimize
 
 $$\|\bm{y} - \bm{X}\bm{\beta}\|^2 \qquad \text{subject to}\qquad \bm{\beta}'\bm{D}\bm{\beta} \le C.$$
 
-
 ## Penalized regression splines
 
 A Lagrange multiplier argument shows that this is equivalent to
@@ -71,9 +69,7 @@ for some number $\lambda\ge0$.
 \textbf{Solution:} $\hat{\bm{\beta}}_\lambda = (\bm{X}'\bm{X} +
 \lambda^2\bm{D})^{-1}\bm{X}'\bm{y}.$
 
-
  * A type of ridge regression.
-
 
 ## Mixed model representation
 
@@ -98,8 +94,6 @@ This is equivalent to estimating the mixed model
 $$\bm{y} = \bm{X}\bm{\beta} + \bm{Z}\bm{u} + \bm{\varepsilon}$$
 where $u_i \sim \mbox{N}(0,\sigma_u^2)$ and $\varepsilon_j \sim\mbox{N}(0,\sigma_\varepsilon^2)$.
 
-
-
 ## Mixed model representation
 
 \alert{Advantages}
@@ -107,8 +101,6 @@ where $u_i \sim \mbox{N}(0,\sigma_u^2)$ and $\varepsilon_j \sim\mbox{N}(0,\sigma
  * Automatic penalty selection: use REML.
 
  * Easy to develop Bayesian version
-
-
 
 \pause
 
@@ -122,9 +114,7 @@ $$\hat{\bm{u}} = \sigma_u^2\bm{Z}'\bm{V}^{-1}(\bm{y}-\bm{X}\hat{\bm{\beta}}).$$
 
 $\bm{V}$ estimated using profile log-likelihood methods.
 
-
 ## Choice of knots
-
 
  * Provided the set of knots is relatively dense with respect to the $\{x_j\}$, the result hardly changes.
  * Choose enough knots to model structure, but not too many knots to cause computational problems.
@@ -195,8 +185,6 @@ No need for iterative back-fitting as the model can be written as a linear model
 No need for iterative back-fitting as the model can be written as a linear mixed-effects model.
 \end{block}
 
-
-
 ## Inference for Additive Models
 
 Each fitted function can be written as a linear smoother \colorbox[rgb]{1,1,.5}{$\hat{\bm f}_j
@@ -211,7 +199,6 @@ where $\bm S_0$ is such that $\bm S_0\bm y = \beta_0{\bf 1}$.
 
 Thus all inference results for linear smoothers may be applied to
 additive model.
-
 
 # Generalized additive models
 

@@ -62,7 +62,6 @@ for(i in 1:nmu)
 
 \centerline{\animategraphics[controls,buttonsize=0.3cm,width=11.5cm]{6}{"figs/poisson"}{1}{20}}
 
-
 ## Regression with count data
 
 Suppose response $Y$ is a count (0,1,2,\dots).
@@ -143,7 +142,6 @@ $$\eta_i = \log\left(\frac{\mu_i}{\mu_i+k}\right) =
 & \mbox{} \hspace*{1cm} +\sum_{j=0}^{y_i-1} \log(j+k) - \log(y_i!)\Bigg)
 \end{align*}
 
-
 ## Negative binomial regression
 
 ```r
@@ -152,7 +150,6 @@ fit <- glm(y ~ x1 + x2,
 
 fit <- MASS::glm.nb(y ~ x1 + x2, data)
 ```
-
 
 # Zero inflated count models
 
@@ -165,7 +162,6 @@ fit <- MASS::glm.nb(y ~ x1 + x2, data)
  * Number of articles written by PhD students
 
 Over-dispersed models do not deal adequately with this type of data.
-
 
 ## Zero-inflated count models
 
@@ -202,7 +198,6 @@ fit <- pscl::hurdle(y ~ x1 + x2, data)
 ```r
 fit <- pscl::zeroinfl(y ~ x1 + x2, data)
 ```
-
 
 ## Zero-inflated count models
 

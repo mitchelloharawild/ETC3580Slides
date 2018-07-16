@@ -9,7 +9,6 @@ output:
       in_header: header.tex
 ---
 
-
 # Key Concepts
 
 \fontsize{13}{15}\sf
@@ -23,7 +22,6 @@ output:
  3. GLMM: Generalized Linear Mixed-Effect Models
  4. GAM: Generalized Additive Models
  5. GAMM: Generalized Additive Mixed-Effect Models
-
 
 # Data Analysis Skills
 
@@ -78,7 +76,6 @@ output:
  * Interpreting a fitted model
  * Bootstrap tests
 
-
 # Generalized Additive Models
 
 \fontsize{13}{15}\sf
@@ -94,7 +91,6 @@ output:
  * GCV and smoothness selection
  * Additive models
  * Generalized additive models
-
 
 # Exam
 

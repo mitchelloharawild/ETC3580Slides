@@ -19,7 +19,6 @@ library(faraway)
 library(tidyverse)
 ```
 
-
 # Exponential family distributions
 
 ## Exponential family distributions
@@ -120,7 +119,6 @@ A GLM consists of three components:
  * $g$ must map the space of $\mu$ to $\mathbb{R}$.
  * Canonical link has $g(\mu)=\theta$.
 
-
 ## Link functions
 
 \begin{block}{}
@@ -154,7 +152,6 @@ Inverse Gaussian & $1/\mu^2$           & $\mu^3$
  & = \frac{1}{a(\phi)} \sum_{i=1}^n \frac{\partial}{\partial \beta_j} \left[ y_i \theta_i - b(\theta_i)\right] \\
  & = \frac{1}{a(\phi)} \sum_{i=1}^n \left[ y_i \frac{\partial \theta_i}{\partial \beta_j} - \frac{\partial b(\theta_i)}{\partial \beta_j}\right] \\
 \end{align*}
-
 
 ## Log Likelihood
 
@@ -220,7 +217,6 @@ fit <- glm(y ~ x1 + x2, family, data)
 
 \alert{link options}\fontsize{13}{13}\sf
 
-
 ```r
 identity
 log
@@ -248,7 +244,6 @@ and
 glm(y ~ x)
 ```
 
-
 ## Question
 
 What is the difference between these?
@@ -275,7 +270,6 @@ Binomial &  $2\displaystyle\sum \left[y_i \log\left(\frac{y_i}{\hat\mu_i}\right)
 Gamma & $2\displaystyle\sum \left[- \log\left(\frac{y_i}{\hat\mu_i}\right) + \frac{y_i-\hat{\mu}_i}{\hat\mu_i}\right]$ \\
 Inverse Gaussian & $\displaystyle\sum \frac{(y_i-\hat\mu_i)^2}{\hat\mu_i^2 y_i}$
 \end{tabular}
-
 
 ## Hypothesis tests
 
@@ -362,7 +356,6 @@ $$D_i = \frac{(\hat{\bm\beta}_{(i)} - \hat{\bm\beta})'(\bm{X}'\bm{W}\bm{X})
 (\hat{\bm\beta}_{(i)} - \hat{\bm\beta})}{p\hat\phi}$$
 
  * `cooks.distance(fit)`
-
 
 ## Diagnostics
 
@@ -513,7 +506,6 @@ Show var $= \phi\mu^{p}$
 
 ## Compound Poisson-gamma distribution
 
-
 \begin{align*}
 \E(N) &= \V(N) = \frac{\mu^{2-p}}{(2-p)\phi} \\
 \E(X) &= \frac{(2-p)}{(p-1)}\left(\phi(p-1)\mu^{p-1}\right) = \phi(2-p)\mu^{p-1} \\
@@ -522,7 +514,6 @@ Show var $= \phi\mu^{p}$
 \end{align*}
 
 ## Compound Poisson-gamma distribution
-
 
 \begin{align*}
 \E(Y) &= \E_N[Y\mid N] \\

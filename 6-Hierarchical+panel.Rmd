@@ -19,7 +19,6 @@ library(faraway)
 library(tidyverse)
 ```
 
-
 # Hierarchical Linear Models
 
 ## Nested effects
@@ -52,10 +51,6 @@ Be careful: nested levels with the same labels are not the same thing.
 
 Other variables crossed.
 
-
-
-
-
 # Longitudinal data
 
 ## Longitudinal data
@@ -68,7 +63,6 @@ Other variables crossed.
  * Differs from time series in having many units (e.g., people) but often not many observations per person.
  * i.e., Longitudinal data has large $N$, small $T$; Time series data has small $N$, large $T$.
 
-
 ## Longitudinal data
 
 For unit (individual) $i$, $\bm{y}_i$ is a $T$-vector such that
@@ -79,7 +73,6 @@ $$\bm{y}_i | \gamma_i \sim N(\bm{X}_i\bm{\beta} + \gamma_i, \sigma^2\bm{\Lambda}
  * $\bm\Lambda_i$ handles autocorrelations within units
  * $\bm{y}_i \sim N(\bm{X}_i\bm{\beta}, \bm{\Sigma}_i)$ where $\bm{\Sigma}_i = \sigma^2(\bm{\Lambda}_i + \bm{D})$
  * Assume individuals are independent, and random effects and errors are uncorrelated.
-
 
 ## Longitudinal data
 

@@ -21,7 +21,6 @@ library(KernSmooth)
 library(splines)
 ```
 
-
 ## Nonlinear regression
 
 \begin{block}{}
@@ -128,13 +127,11 @@ for(i in seq_along(h))
 \centerline{\animategraphics[controls,buttonsize=0.3cm,width=12.5cm]
     {6}{"faithful"}{1}{100}}
 
-
 ## Kernel smoothing
 
  * A smooth kernel is better, but otherwise the choice of kernel makes little difference.
  * Optimal kernel (minimizing MSE) is Epanechnikov. It is also fast.
  * The choice of $h$ is crucial.
-
 
 ## Example A
 
@@ -207,7 +204,6 @@ $$\text{MSE}(h) = \E [f(x) - \hat{f}_h(x)] ^2
 
  * $h_{\text{optimal}} \approx\displaystyle \left(\frac{R(K)}{n[f''(x)]^2\sigma_K^4}\right)^{1/5}$
 
-
 ## Kernel smoothing in R
 \fontsize{11}{11}\sf
 
@@ -269,8 +265,6 @@ $$\hat{f}(x) = \hat{a}_0$$
 * Otherwise, $h$ could be selected by cross-validation.
 * But most people seem to use trial and error --- finding the largest $h$ that captures what they think they see by eye.
 
-
-
 ## Loess
 
 Best known implementation is **loess** (locally quadratic)
@@ -295,7 +289,6 @@ ggplot(faithful) +
     geom_line(aes(x=eruptions, y=fitted(smr)), col='blue')
 ```
 
-
 ## Loess in R
 
 \fontsize{12}{14}\sf
@@ -309,7 +302,6 @@ ggplot(faithful) +
       col='blue')
 ```
 
-
 ## Loess
 
 ```{r exaloess}
@@ -321,7 +313,6 @@ ggplot(exa) +
     geom_line(aes(x=x,y=m), col='red')
 ```
 
-
 ## Loess
 
 ```{r exa2loess}
@@ -332,7 +323,6 @@ ggplot(exa) +
     geom_line(aes(x=x, y=fitted(smr)), col='blue') +
     geom_line(aes(x=x,y=m), col='red')
 ```
-
 
 ## Loess
 
@@ -363,10 +353,7 @@ ggplot(exa) +
 
 * Automatically produced using `geom_smooth`
 
-
-
 # Splines
-
 
 ## Interpolating splines
 

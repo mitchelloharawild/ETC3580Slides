@@ -35,7 +35,6 @@ $$w_j(x) = \frac{K\left(\frac{x-x_j}{h}\right)}{\displaystyle\sum_{i=1}^n \texts
 
  * Almost all smoothing methods can be written in this form for different functions $w_j(x)$
 
-
 ## Example
 
 ```{r}
@@ -148,8 +147,6 @@ df %>% filter(u==u0[i]) %>%
     scale_y_continuous(breaks=0)
 ```
 
-
-
 ## Local polynomial estimator
 
 Assume
@@ -164,7 +161,6 @@ In matrix notation we can write
 $$\text{WLS}(x) = (\bm{Y}-X\bm{a})'W(x)(\bm{Y}-X\bm{a})$$
 where $[X]_{ji} = (x_j-x)^i$ and $W(x)$ is the diagonal matrix with elements
 $w_j(x)$.
-
 
 ## Local polynomial estimator
 
@@ -212,7 +208,6 @@ df %>% filter(u==u0[i]) %>%
     scale_y_continuous(breaks=0)
 ```
 
-
 ## Local linear estimator
 
 ```{r, fig.height=4, fig.width=8}
@@ -239,7 +234,6 @@ df %>% filter(u==u0[i]) %>%
     scale_y_continuous(breaks=0)
 ```
 
-
 ## Local linear estimator
 
 ```{r, fig.height=4, fig.width=8}
@@ -265,7 +259,6 @@ df %>% filter(u==u0[i]) %>%
     theme(axis.title.y=element_text(margin = margin(r=5))) +
     scale_y_continuous(breaks=0)
 ```
-
 
 ## Local linear estimator
 
@@ -324,7 +317,6 @@ df %>% filter(u==u0[i]) %>%
     theme(axis.title.y=element_text(margin = margin(r=5))) +
     scale_y_continuous(breaks=0)
 ```
-
 
 ## Local quadratic smoother
 
@@ -412,7 +404,6 @@ df %>% filter(u==u0[i]) %>%
  * A cubic smoothing spline can also be written as a kernel smoother with  kernel function asymptotically equal to
 $$K_s(u) = \frac{1}{2}\exp\left(-\frac{|u|}{h\sqrt{2}}\right)\sin\left(\frac{|u|}{h\sqrt{2}} + \frac{\pi}{4}\right).$$
 
-
 ## Smoothing spline
 
 ```{r}
@@ -444,7 +435,6 @@ df %>% filter(u==u0[i]) %>%
     scale_y_continuous(breaks=0)
 ```
 
-
 ## Smoothing spline
 
 ```{r, fig.height=4, fig.width=8}
@@ -470,9 +460,7 @@ df %>% filter(u==u0[i]) %>%
     scale_y_continuous(breaks=0)
 ```
 
-
 ## Smoothing spline
-
 
 ```{r, fig.height=4, fig.width=8}
 i <- 3
@@ -496,7 +484,6 @@ df %>% filter(u==u0[i]) %>%
     theme(axis.title.y=element_text(margin = margin(r=5))) +
     scale_y_continuous(breaks=0)
 ```
-
 
 ## Smoothing spline
 

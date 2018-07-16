@@ -71,7 +71,6 @@ fit <- glm(y ~ x1 + x2, family=binomial,
 * First (alphabetical) level is set to 0, other to 1. Use `relevel` if you want to change it.
 * `glm` uses MLE with a logit link function (when `family=binomial`).
 
-
 ## Interpreting a logistic regression
 
 \begin{block}{}
@@ -85,7 +84,6 @@ Odds = $p/(1-p)$.
  * log(odds) = $\log(p/(1-p)) = \beta_0 + \beta_1 x_1 + \beta_2 x_2$
  * A unit increase in $x_1$ with $x_2$ held fixed increases log-odds of success by $\beta_1$.
  * A unit increase in $x_1$ with $x_2$ held fixed increases odds of success by a factor of $e^{\beta_1}$.
-
 
 # Diagnostics for logistic regression
 
@@ -110,7 +108,6 @@ $$-2\log L = c + \frac{1}{\hat\sigma^2} \sum e_i^2 = c + \sum d_i^2$$
 \centerline{$d_i=e_i/\hat{\sigma}$}
 \end{block}
 
-
 ## Logistic regression residuals
 
 \alert{Response residuals}: Observation -- estimate
@@ -134,7 +131,6 @@ $$ -2\log L = -2\sum [\log(\hat{p}_i)y_i + \log(1-\hat{p}_i)(1-y_i)]$$
 \centerline{$d_i = (2y_i-1)\sqrt{-2\left[y_i\log(\hat{p}_i) + (1-y_i)\log(1-\hat{p}_i)\right]}$}
 \end{block}
 
-
 ## Logistic regression residuals
 
 In R:
@@ -149,7 +145,6 @@ d <- residuals(fit, type='deviance')
 * `deviance` is the default
 * Residual plots can be hard to interpret
 * Don't expect residuals to be normally distributed
-
 
 ## Partial residual plots
 
@@ -215,7 +210,6 @@ anova(fit1, fit2, test="Chisq")
  * Beware of hypothesis tests after variable selection
 
 # Latent variables and link functions
-
 
 ## Latent variable interpretation
 \fontsize{14}{16}\sf
@@ -290,7 +284,6 @@ fit <- glm(y ~ x1 + x2,
  \eta_i &= \beta_0 + \beta_1 x_{i,1} + \dots + \beta_q x_{i,q}
 \end{align*}\vspace*{-0.2cm}
 $$\log L = \sum_{i=1}^n \left[y_i\eta_i - m_i \log(1+e^{\eta_i}) + log {m_i \choose y_i}\right]$$
-
 
 ## Binomial responses
 

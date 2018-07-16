@@ -73,7 +73,6 @@ $$\text{Var}\left[\theta(y) \mid \sum_{j=1}^p f_j(x_{j,i}) \right] = \text{const
  * Not necessarily the best possible fit.
  * Again, it is perhaps best for suggesting parametric transformations
 
-
 # Generalized Additive Mixed-Effect Models
 
 ## Generalized Additive Mixed-Effect Models
@@ -88,7 +87,6 @@ $$\text{Var}\left[\theta(y) \mid \sum_{j=1}^p f_j(x_{j,i}) \right] = \text{const
 
 ###
 Implemented in `mgcv::gamm`
-
 
 # Multivariate Adaptive Regression Splines
 

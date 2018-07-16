@@ -89,11 +89,9 @@ jbox(sample(y,replace=TRUE)) + ylab("Bootstrapped data")
 jbox(sample(y,replace=TRUE)) + ylab("Bootstrapped data")
 ```
 
-
 ## Nonparametric bootstrap of sample median
 
  * Percentiles of bootstrapped medians provide a confidence interval for the true median.
-
 
 \fontsize{12}{14}\sf
 
