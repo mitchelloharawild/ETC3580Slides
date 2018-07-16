@@ -1,6 +1,6 @@
 ---
 title: "ETC3580: Advanced Statistical Modelling"
-author: "Week 1: Linear model revision"
+author: "Week 1: Linear models"
 fontsize: 14pt
 output:
   beamer_presentation:
@@ -17,91 +17,6 @@ knitr::opts_chunk$set(echo = FALSE, cache=TRUE, warning=FALSE, message=FALSE,
   dev.args=list(bg=grey(0.9), pointsize=11))
 library(fpp2)
 ```
-
-# Unit information
-
-## Contact details
-
-### Lecturer
-
-**Professor Rob Hyndman**
-
-  - Room E762, Menzies Building
-  - Email: Rob.Hyndman@monash.edu
-  - robjhyndman.com
-
-### Tutor
-
-**Mitchell O'Hara-Wild**
-
-  - Email: Mitch.OHaraWild@monash.edu
-
-## Unit objectives
-
-  1. provide an understanding of statistical models for handling common data analysis problems
-  2. develop skills for fitting, interpreting and assessing statistical models
-  3. develop computer skills for exploring and modelling different kinds of data.
-
-
-### Teaching and learning approach
-
- * Two 60 min lectures (Mon 4pm; Tues 4pm)
- * One 90 min tutorial (Fri 12.30pm)
-
-
-##
-\placefig{2.5}{1.}{width=7.5cm}{RStudio-Ball}
-
-## Key reference
-
-\placefig{0}{1.2}{width=7cm}{ELM}
-
-\begin{textblock}{6}(6,2)
-\begin{alertblock}{}\Large
-\centerline{\bf pdf on ed}
-\end{alertblock}
-\end{textblock}
-
-## Outline
-
-\fontsize{12}{13}\sf
-
-\begin{tabular}{rlp{8.2cm}}
-\bf Week & \multicolumn{2}{l}{\textbf{Topic}} \\
-\midrule
-1 &GLM & Review of linear models\\
-2 &GLM & Regression with binary, binomial and proportional responses\\
-3 &GLM & Regression with count responses\\
-4 &GLM & Generalized linear model theory\\
-5 &GLMM & Random effects\\
-6 &GLMM & Panel data and hierarchical linear models\\
-7 &GLMM & Mixed effects models for non-Gaussian responses\\
-8 &GAM & Nonparametric regression\\
-9 &GAM & Smoothing splines and B-splines\\
-10 &GAM  & Penalized regression splines\\
-11 &GAM  & Additive models\\
-12 &GAM  & GAMM and MARS
-\end{tabular}
-
-## Assessment
-
-\begin{tabular}{lll}
-  \toprule
-    \textbf{Task}  & \textbf{Due Date}     & \textbf{Value} \\
-  \midrule
-    Assignment 1   & 28 August & 13.33\%\\
-    Assignment 2   & 2 October & 13.33\%\\
-    Assignment 3   & 23 October & 13.33\%\\
-    Final exam     & Official exam period  & 60\%           \\
-  \bottomrule
-\end{tabular}
-
-\vspace*{0.8cm}
-
-\pause
-
-  - Need at least 50\% for exam.
-  - Need at least 50\% for total.
 
 # Linear Models in R
 
